@@ -88,9 +88,9 @@ export function QuickFacts({ language }: QuickFactsProps) {
   ];
 
   return (
-    <section className="py-16 bg-[#FDFBF7] relative">
+    <section className="py-16 bg-[#FDFBF7] dark:bg-[#0a1628] relative">
       {/* Subtle top pattern */}
-      <div className="absolute inset-0 opacity-[0.03]"
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.01]"
         style={{ backgroundImage: 'radial-gradient(circle, #1CA6D0 1px, transparent 1px)', backgroundSize: '32px 32px' }}
       />
 
@@ -104,7 +104,7 @@ export function QuickFacts({ language }: QuickFactsProps) {
                 className={`relative bg-gradient-to-br ${fact.gradient} border ${fact.border} rounded-[28px] p-7 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group overflow-hidden`}
               >
                 {/* Large emoji watermark */}
-                <span className="absolute top-3 right-4 text-5xl opacity-10 group-hover:opacity-20 transition-opacity select-none">
+                <span className="absolute top-3 right-4 text-5xl opacity-10 dark:opacity-5 group-hover:opacity-20 transition-opacity select-none">
                   {fact.badge}
                 </span>
 
@@ -122,12 +122,12 @@ export function QuickFacts({ language }: QuickFactsProps) {
                 </p>
 
                 {/* Value */}
-                <h3 className="text-2xl font-black text-gray-900 leading-tight mb-1">
+                <h3 className="text-2xl font-black text-gray-900 dark:text-white leading-tight mb-1">
                   {fact.val}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-500 text-sm leading-relaxed">{fact.desc}</p>
+                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{fact.desc}</p>
 
                 {/* Bottom accent bar */}
                 <div

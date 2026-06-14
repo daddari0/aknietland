@@ -89,30 +89,30 @@ export function AdmissionSteps({ language }: AdmissionStepsProps) {
   const t = translations[language];
 
   return (
-    <section id="admission" className="py-20 lg:py-28 bg-[#FDFBF7] relative overflow-hidden">
+    <section id="admission" className="py-20 lg:py-28 bg-[#FDFBF7] dark:bg-[#0a1628] relative overflow-hidden">
       {/* Dot grid background */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.04] dark:opacity-[0.01]"
         style={{ backgroundImage: 'radial-gradient(circle, #1CA6D0 1px, transparent 1px)', backgroundSize: '28px 28px' }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#3BB85E]/8 border border-[#3BB85E]/20 text-[#3BB85E] text-sm font-bold px-5 py-2 rounded-full mb-5">
+          <div className="inline-flex items-center gap-2 bg-[#3BB85E]/8 border border-[#3BB85E]/20 text-[#3BB85E] dark:bg-white/10 dark:border-white/20 dark:text-white/80 text-sm font-bold px-5 py-2 rounded-full mb-5">
             {t.badge}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-4 leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
             {t.title}{' '}
             <span className="gradient-text">{t.titleAccent}</span>
           </h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">{t.subtitle}</p>
+          <p className="text-xl text-gray-500 dark:text-gray-300 max-w-2xl mx-auto">{t.subtitle}</p>
         </div>
 
         {/* Steps */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {/* Connecting dashed line on desktop */}
-          <div className="absolute top-12 left-[12.5%] right-[12.5%] h-0.5 border-t-2 border-dashed border-gray-200 hidden lg:block z-0" />
+          <div className="absolute top-12 left-[12.5%] right-[12.5%] h-0.5 border-t-2 border-dashed border-gray-200 dark:border-gray-800 hidden lg:block z-0" />
 
           {t.steps.map((step, i) => (
             <div key={i} className="flex flex-col items-center text-center group relative z-10">
@@ -143,8 +143,8 @@ export function AdmissionSteps({ language }: AdmissionStepsProps) {
                 className={`bg-gradient-to-b ${step.bg} border rounded-[24px] p-6 w-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300`}
                 style={{ borderColor: `${step.color}25` }}
               >
-                <h3 className="text-lg font-black text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+                <h3 className="text-lg font-black text-gray-900 dark:text-white mb-2">{step.title}</h3>
+                <p className="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">{step.desc}</p>
               </div>
             </div>
           ))}
@@ -153,7 +153,7 @@ export function AdmissionSteps({ language }: AdmissionStepsProps) {
         {/* CTA after steps */}
         <div className="mt-14 text-center">
           <a href="#contact">
-            <button className="inline-flex items-center gap-3 text-white font-black text-base px-10 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200"
+            <button className="inline-flex items-center gap-3 text-white font-black text-base px-10 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200 cursor-pointer"
               style={{ background: 'linear-gradient(135deg, #1CA6D0, #3BB85E)' }}>
               {language === 'kz' ? '📝 Өтінім қалдыру' : '📝 Подать заявку'}
             </button>

@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle, Sun, Moon } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
 
 interface HeaderProps {
   language: 'kz' | 'ru';
   onLanguageChange: (lang: 'kz' | 'ru') => void;
+  theme: 'light' | 'dark';
+  onThemeToggle: () => void;
 }
 
-export function Header({ language, onLanguageChange }: HeaderProps) {
+export function Header({ language, onLanguageChange, theme, onThemeToggle }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -53,8 +55,8 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-100/60'
-          : 'bg-white/70 backdrop-blur-md border-b border-transparent'
+          ? 'bg-white/90 dark:bg-[#0a1628]/90 backdrop-blur-xl shadow-lg shadow-black/5 dark:shadow-black/20 border-b border-gray-100/60 dark:border-gray-800/60'
+          : 'bg-white/70 dark:bg-[#0a1628]/70 backdrop-blur-md border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +77,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               <a
                 key={item.href}
                 href={item.href}
-                className="relative px-4 py-2 text-gray-600 hover:text-[#1CA6D0] font-semibold text-[15px] rounded-xl hover:bg-[#1CA6D0]/8 transition-all duration-200 group/link"
+                className="relative px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-[#1CA6D0] dark:hover:text-[#1CA6D0] font-semibold text-[15px] rounded-xl hover:bg-[#1CA6D0]/8 dark:hover:bg-[#1CA6D0]/10 transition-all duration-200 group/link"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#1CA6D0] rounded-full group-hover/link:w-4/5 transition-all duration-300" />
@@ -87,21 +89,30 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           <div className="flex items-center gap-3">
 
             {/* Language Toggle */}
-            <div className="flex items-center bg-gray-100 rounded-full p-1 border border-gray-200/60">
+            <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-full p-1 border border-gray-200/60 dark:border-gray-800/60">
               {(['kz', 'ru'] as const).map((lang) => (
                 <button
                   key={lang}
                   onClick={() => onLanguageChange(lang)}
                   className={`px-3.5 py-1.5 text-xs font-bold rounded-full transition-all duration-200 cursor-pointer ${
                     language === lang
-                      ? 'bg-white shadow text-[#1CA6D0] scale-105'
-                      : 'text-gray-500 hover:text-gray-800'
+                      ? 'bg-white dark:bg-gray-700 shadow text-[#1CA6D0] scale-105'
+                      : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white'
                   }`}
                 >
                   {lang.toUpperCase()}
                 </button>
               ))}
             </div>
+
+            {/* Theme Toggle */}
+            <button
+              onClick={onThemeToggle}
+              className="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 cursor-pointer border border-gray-200/60 dark:border-gray-700/50"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
 
             {/* Call CTA — Desktop */}
             <a
@@ -115,7 +126,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors cursor-pointer"
+              className="lg:hidden p-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -126,14 +137,14 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
 
       {/* ── Mobile Drawer ── */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-100 bg-white/97 backdrop-blur-xl animate-slide-down shadow-2xl absolute top-20 left-0 w-full p-6 space-y-5">
+        <div className="lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white/97 dark:bg-[#0a1628]/97 backdrop-blur-xl animate-slide-down shadow-2xl absolute top-20 left-0 w-full p-6 space-y-5">
           <nav className="flex flex-col gap-1">
             {menuItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-3 text-base font-bold text-gray-700 hover:text-[#1CA6D0] px-4 py-3 rounded-2xl hover:bg-[#EFF8FB] transition-all"
+                className="flex items-center gap-3 text-base font-bold text-gray-700 dark:text-gray-300 hover:text-[#1CA6D0] px-4 py-3 rounded-2xl hover:bg-[#EFF8FB] dark:hover:bg-[#1CA6D0]/10 transition-all"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#1CA6D0]" />
                 {item.label}
@@ -141,7 +152,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             ))}
           </nav>
 
-          <div className="flex flex-col gap-3 pt-4 border-t border-gray-100">
+          <div className="flex flex-col gap-3 pt-4 border-t border-gray-100 dark:border-gray-800">
             <a
               href="tel:+77773626742"
               className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#1CA6D0] to-[#158ab0] text-white py-3.5 rounded-2xl font-bold shadow-md"

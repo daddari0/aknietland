@@ -97,23 +97,23 @@ export function Programs({ language }: ProgramsProps) {
   const t = translations[language];
 
   return (
-    <section id="programs" className="py-20 lg:py-28 bg-white relative overflow-hidden">
+    <section id="programs" className="py-20 lg:py-28 bg-white dark:bg-[#0d2040] relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#EFF8FB]/60 blur-3xl -z-0" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#EFFDF2]/60 blur-3xl -z-0" />
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#EFF8FB]/60 dark:bg-[#EFF8FB]/5 blur-3xl -z-0" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#EFFDF2]/60 dark:bg-[#EFFDF2]/5 blur-3xl -z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#1CA6D0]/8 text-[#1CA6D0] text-sm font-bold px-5 py-2 rounded-full mb-5 border border-[#1CA6D0]/20">
+          <div className="inline-flex items-center gap-2 bg-[#1CA6D0]/8 text-[#1CA6D0] dark:bg-[#1CA6D0]/15 dark:text-[#1CA6D0] text-sm font-bold px-5 py-2 rounded-full mb-5 border border-[#1CA6D0]/20 dark:border-[#1CA6D0]/30">
             {t.badge}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-4 leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
             {t.title}{' '}
             <span className="gradient-text">{t.titleAccent}</span>
           </h2>
-          <p className="text-xl text-gray-500 max-w-2xl mx-auto">{t.subtitle}</p>
+          <p className="text-xl text-gray-500 dark:text-gray-300 max-w-2xl mx-auto">{t.subtitle}</p>
         </div>
 
         {/* Programs grid */}
@@ -121,7 +121,7 @@ export function Programs({ language }: ProgramsProps) {
           {t.programs.map((prog, i) => (
             <div
               key={i}
-              className={`relative bg-gradient-to-br ${prog.bg} border ${prog.border} rounded-[32px] p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col overflow-hidden`}
+              className={`relative bg-gradient-to-br ${prog.bg} border ${prog.border} dark:border-white/10 rounded-[32px] p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col overflow-hidden`}
             >
               {/* Large emoji background */}
               <span className="absolute -top-2 -right-2 text-8xl opacity-[0.07] select-none group-hover:opacity-[0.12] transition-opacity">
@@ -146,14 +146,14 @@ export function Programs({ language }: ProgramsProps) {
 
               {/* Name */}
               <h3
-                className="text-2xl font-black text-gray-900 mb-3 group-hover:transition-colors"
+                className="text-2xl font-black text-gray-900 dark:text-white mb-3 group-hover:transition-colors"
                 style={{ color: 'inherit' }}
               >
                 {prog.name}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed flex-1">{prog.desc}</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed flex-1">{prog.desc}</p>
 
               {/* Bottom color stripe */}
               <div
@@ -166,7 +166,7 @@ export function Programs({ language }: ProgramsProps) {
 
         {/* All included note */}
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-3 bg-[#3BB85E]/8 border border-[#3BB85E]/20 text-[#3BB85E] font-bold text-sm px-6 py-3 rounded-2xl">
+          <div className="inline-flex items-center gap-3 bg-[#3BB85E]/8 border border-[#3BB85E]/20 text-[#3BB85E] dark:bg-[#3BB85E]/15 dark:border-[#3BB85E]/30 font-bold text-sm px-6 py-3 rounded-2xl">
             <span className="text-lg">✅</span>
             {language === 'kz'
               ? 'Барлық бағдарламалар оқу құнына кіреді — қосымша төлем жоқ!'

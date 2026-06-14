@@ -47,29 +47,29 @@ export function Environment({ language }: EnvironmentProps) {
   const t = translations[language];
 
   return (
-    <section id="about" className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-[#0a1628] via-[#0d2040] to-[#112255]">
+    <section id="about" className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-[#EFFDF2] via-[#FDFBF7] to-[#EFF8FB] dark:from-[#0a1628] dark:via-[#0d2040] dark:to-[#112255]">
       {/* Background blobs */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-[#1CA6D0]/10 blur-[100px]" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#3BB85E]/10 blur-[80px]" />
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full bg-[#1CA6D0]/8 dark:bg-[#1CA6D0]/10 blur-[100px]" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#3BB85E]/8 dark:bg-[#3BB85E]/10 blur-[80px]" />
 
       {/* Wave top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none" style={{transform: 'rotate(180deg)'}}>
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{height:'60px',display:'block',width:'100%'}}>
-          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#FDFBF7" />
+          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white" className="fill-white dark:fill-[#0d2040]" />
         </svg>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/80 text-sm font-bold px-5 py-2 rounded-full mb-5">
+          <div className="inline-flex items-center gap-2 bg-[#3BB85E]/8 border border-[#3BB85E]/20 text-[#2fa34f] dark:bg-white/10 dark:border-white/20 dark:text-white/80 text-sm font-bold px-5 py-2 rounded-full mb-5">
             {t.badge}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
             {t.title}{' '}
             <span className="gradient-text">{t.titleAccent}</span>
           </h2>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">{t.subtitle}</p>
+          <p className="text-xl text-gray-650 dark:text-white/60 max-w-2xl mx-auto">{t.subtitle}</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -78,11 +78,11 @@ export function Environment({ language }: EnvironmentProps) {
             {t.features.map((f, i) => (
               <div
                 key={i}
-                className="glass-card rounded-[24px] p-5 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 group"
+                className="glass-card rounded-[24px] p-5 hover:bg-white/90 dark:hover:bg-white/20 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group border border-gray-200/50 dark:border-white/10 shadow-sm"
               >
                 <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">{f.emoji}</div>
-                <h4 className="font-black text-white text-sm mb-1">{f.title}</h4>
-                <p className="text-white/55 text-xs leading-relaxed">{f.desc}</p>
+                <h4 className="font-black text-gray-900 dark:text-white text-sm mb-1">{f.title}</h4>
+                <p className="text-gray-600 dark:text-white/55 text-xs leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -90,8 +90,8 @@ export function Environment({ language }: EnvironmentProps) {
           {/* RIGHT: Photos */}
           <div className="flex flex-col gap-5">
             {/* Classroom photo */}
-            <div className="relative rounded-[28px] overflow-hidden shadow-2xl border border-white/10 group">
-              <div className="aspect-[16/9] bg-gray-800">
+            <div className="relative rounded-[28px] overflow-hidden shadow-2xl border border-gray-150 dark:border-white/10 group">
+              <div className="aspect-[16/9] bg-gray-100 dark:bg-gray-800">
                 <ImageWithFallback
                   src={classroomImg}
                   alt="AK-NIET Classroom"
@@ -104,8 +104,8 @@ export function Environment({ language }: EnvironmentProps) {
             </div>
 
             {/* Hallway photo */}
-            <div className="relative rounded-[28px] overflow-hidden shadow-2xl border border-white/10 group">
-              <div className="aspect-[16/9] bg-gray-800">
+            <div className="relative rounded-[28px] overflow-hidden shadow-2xl border border-gray-150 dark:border-white/10 group">
+              <div className="aspect-[16/9] bg-gray-100 dark:bg-gray-800">
                 <ImageWithFallback
                   src={hallwayImg}
                   alt="AK-NIET Hallway"
@@ -123,7 +123,7 @@ export function Environment({ language }: EnvironmentProps) {
       {/* Wave bottom divider */}
       <div className="wave-bottom">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{height:'64px'}}>
-          <path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="white" />
+          <path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="#FDFBF7" className="fill-[#FDFBF7] dark:fill-[#0a1628]" />
         </svg>
       </div>
     </section>
