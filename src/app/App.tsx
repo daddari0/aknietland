@@ -9,6 +9,8 @@ import { Gallery } from './components/Gallery';
 import { FAQ } from './components/FAQ';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
+import { FloatingCTA } from './components/FloatingCTA';
+import { Testimonials } from './components/Testimonials';
 
 export default function App() {
   const [language, setLanguage] = useState<'kz' | 'ru'>('ru');
@@ -35,7 +37,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] dark:bg-[#0a1628] antialiased text-gray-800 dark:text-gray-100 transition-colors duration-300">
+    <div className="min-h-screen bg-[#FAF9F6] dark:bg-[#152238] antialiased text-gray-800 dark:text-gray-100 transition-colors duration-300">
       <Header 
         language={language} 
         onLanguageChange={setLanguage} 
@@ -48,9 +50,11 @@ export default function App() {
       <Environment language={language} />
       <AdmissionSteps language={language} />
       <Gallery language={language} />
+      <Testimonials language={language} />
       <FAQ language={language} />
       <ContactForm language={language} />
       <Footer language={language} />
+      <FloatingCTA language={language} />
     </div>
   );
 }

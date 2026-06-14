@@ -87,7 +87,7 @@ export function FAQ({ language }: FAQProps) {
   const t = translations[language];
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-[#FDFBF7] dark:bg-[#0a1628] relative overflow-hidden">
+    <section id="faq" className="py-20 lg:py-28 bg-[#FAF9F6] dark:bg-[#152238] relative overflow-hidden">
       {/* Background blobs */}
       <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-[#1CA6D0]/6 dark:bg-[#1CA6D0]/10 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-[#3BB85E]/6 dark:bg-[#3BB85E]/10 blur-3xl" />

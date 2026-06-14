@@ -74,7 +74,7 @@ export function Gallery({ language }: GalleryProps) {
   const next = () => setActivePhotoIndex(p => p !== null ? (p === photoData.length - 1 ? 0 : p + 1) : null);
 
   return (
-    <section id="gallery" className="py-20 lg:py-28 bg-white dark:bg-[#0d2040] relative overflow-hidden">
+    <section id="gallery" className="py-20 lg:py-28 bg-white dark:bg-[#1c2e4a] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#FAC315]/8 dark:bg-[#FAC315]/4 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#1CA6D0]/8 dark:bg-[#1CA6D0]/4 blur-3xl" />

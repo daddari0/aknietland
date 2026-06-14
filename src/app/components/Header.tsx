@@ -55,8 +55,8 @@ export function Header({ language, onLanguageChange, theme, onThemeToggle }: Hea
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 dark:bg-[#0a1628]/90 backdrop-blur-xl shadow-lg shadow-black/5 dark:shadow-black/20 border-b border-gray-100/60 dark:border-gray-800/60'
-          : 'bg-white/70 dark:bg-[#0a1628]/70 backdrop-blur-md border-b border-transparent'
+          ? 'bg-white/90 dark:bg-[#152238]/90 backdrop-blur-xl shadow-lg shadow-black/5 dark:shadow-black/20 border-b border-gray-100/60 dark:border-gray-800/60'
+          : 'bg-white/70 dark:bg-[#152238]/70 backdrop-blur-md border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -137,7 +137,7 @@ export function Header({ language, onLanguageChange, theme, onThemeToggle }: Hea
 
       {/* ── Mobile Drawer ── */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white/97 dark:bg-[#0a1628]/97 backdrop-blur-xl animate-slide-down shadow-2xl absolute top-20 left-0 w-full p-6 space-y-5">
+        <div className="lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white/97 dark:bg-[#152238]/97 backdrop-blur-xl animate-slide-down shadow-2xl absolute top-20 left-0 w-full p-6 space-y-5">
           <nav className="flex flex-col gap-1">
             {menuItems.map((item) => (
               <a

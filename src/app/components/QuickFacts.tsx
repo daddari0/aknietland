@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Clock, Users, Blocks, MapPin } from 'lucide-react';
 
 interface QuickFactsProps {
@@ -5,6 +6,22 @@ interface QuickFactsProps {
 }
 
 export function QuickFacts({ language }: QuickFactsProps) {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.15 }
+    );
+    const els = sectionRef.current?.querySelectorAll('.reveal');
+    els?.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   const translations = {
     kz: {
       hoursTitle: 'Жұмыс уақыты',
@@ -88,7 +105,7 @@ export function QuickFacts({ language }: QuickFactsProps) {
   ];
 
   return (
-    <section className="py-16 bg-[#FDFBF7] dark:bg-[#0a1628] relative">
+    <section ref={sectionRef} className="py-16 bg-[#FAF9F6] dark:bg-[#152238] relative">
       {/* Subtle top pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.01]"
         style={{ backgroundImage: 'radial-gradient(circle, #1CA6D0 1px, transparent 1px)', backgroundSize: '32px 32px' }}
@@ -101,7 +118,7 @@ export function QuickFacts({ language }: QuickFactsProps) {
             return (
               <div
                 key={index}
-                className={`relative bg-gradient-to-br ${fact.gradient} border ${fact.border} rounded-[28px] p-7 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group overflow-hidden`}
+                className={`reveal reveal-delay-${index + 1} relative bg-gradient-to-br ${fact.gradient} border ${fact.border} rounded-[28px] p-7 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group overflow-hidden`}
               >
                 {/* Large emoji watermark */}
                 <span className="absolute top-3 right-4 text-5xl opacity-10 dark:opacity-5 group-hover:opacity-20 transition-opacity select-none">

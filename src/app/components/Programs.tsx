@@ -97,7 +97,7 @@ export function Programs({ language }: ProgramsProps) {
   const t = translations[language];
 
   return (
-    <section id="programs" className="py-20 lg:py-28 bg-white dark:bg-[#0d2040] relative overflow-hidden">
+    <section id="programs" className="py-20 lg:py-28 bg-white dark:bg-[#1c2e4a] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#EFF8FB]/60 dark:bg-[#EFF8FB]/5 blur-3xl -z-0" />
       <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#EFFDF2]/60 dark:bg-[#EFFDF2]/5 blur-3xl -z-0" />

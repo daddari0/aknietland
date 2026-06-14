@@ -62,7 +62,7 @@ export function ContactForm({ language }: ContactFormProps) {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-[#FDFBF7] via-[#EFF8FB] to-[#FDFBF7] dark:from-[#0a1628] dark:via-[#0d2040] dark:to-[#0e2a4f]">
+    <section id="contact" className="py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-[#FAF9F6] via-[#EFF8FB] to-[#FAF9F6] dark:from-[#152238] dark:via-[#1c2e4a] dark:to-[#1e3a63]">
       {/* Background blobs */}
       <div className="absolute top-0 right-0 w-[450px] h-[450px] rounded-full bg-[#1CA6D0]/8 dark:bg-[#1CA6D0]/10 blur-[90px]" />
       <div className="absolute bottom-0 left-0 w-[450px] h-[450px] rounded-full bg-[#3BB85E]/6 dark:bg-[#3BB85E]/10 blur-[90px]" />
@@ -70,7 +70,7 @@ export function ContactForm({ language }: ContactFormProps) {
       {/* Wave top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none pointer-events-none" style={{ transform: 'rotate(180deg)' }}>
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ height: '60px', display: 'block', width: '100%' }}>
-          <path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="#FDFBF7" className="fill-[#FDFBF7] dark:fill-[#0a1628]" />
+          <path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="#FAF9F6" className="fill-[#FAF9F6] dark:fill-[#152238]" />
         </svg>
       </div>
 
@@ -232,7 +232,7 @@ export function ContactForm({ language }: ContactFormProps) {
       {/* Wave bottom */}
       <div className="wave-bottom">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ height: '64px' }}>
-          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#F8FAFC" className="fill-[#F8FAFC] dark:fill-[#050e1e]" />
+          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#F8FAFC" className="fill-[#F8FAFC] dark:fill-[#0f182e]" />
         </svg>
       </div>
     </section>

@@ -42,7 +42,7 @@ export function Footer({ language }: FooterProps) {
   const t = translations[language];
 
   return (
-    <footer className="bg-[#F8FAFC] dark:bg-[#050e1e] border-t border-gray-150 dark:border-white/5 text-gray-800 dark:text-white relative overflow-hidden">
+    <footer className="bg-[#F8FAFC] dark:bg-[#0f182e] border-t border-gray-150 dark:border-white/5 text-gray-800 dark:text-white relative overflow-hidden">
 
       {/* ── Top wave (already provided by ContactForm wave-bottom) ── */}
 

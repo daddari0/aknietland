@@ -89,7 +89,7 @@ export function AdmissionSteps({ language }: AdmissionStepsProps) {
   const t = translations[language];
 
   return (
-    <section id="admission" className="py-20 lg:py-28 bg-[#FDFBF7] dark:bg-[#0a1628] relative overflow-hidden">
+    <section id="admission" className="py-20 lg:py-28 bg-[#FAF9F6] dark:bg-[#152238] relative overflow-hidden">
       {/* Dot grid background */}
       <div
         className="absolute inset-0 opacity-[0.04] dark:opacity-[0.01]"

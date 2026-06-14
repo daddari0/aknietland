@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --background: #FDFBF7;
+  --background: #FAF9F6;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
@@ -48,24 +48,24 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --background: #152238;
+  --foreground: #f3f4f6;
+  --card: #1c2e4a;
+  --card-foreground: #f3f4f6;
+  --popover: #1c2e4a;
+  --popover-foreground: #f3f4f6;
+  --primary: #ffffff;
+  --primary-foreground: #152238;
+  --secondary: #243b6d;
+  --secondary-foreground: #ffffff;
+  --muted: #243b6d;
+  --muted-foreground: #9ca3af;
+  --accent: #243b6d;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.05);
   --ring: oklch(0.439 0 0);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
@@ -74,13 +74,13 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
+  --sidebar: #0f182e;
+  --sidebar-foreground: #f3f4f6;
+  --sidebar-primary: #152238;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1c2e4a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
   --sidebar-ring: oklch(0.439 0 0);
 }
 
@@ -232,8 +232,8 @@
   border: 1px solid rgba(255, 255, 255, 0.55);
 }
 .dark .glass-card {
-  background: rgba(13, 32, 64, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(28, 46, 74, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* ─── Gradient Text ─── */
@@ -264,3 +264,46 @@
   display: block;
   width: calc(100% + 1.3px);
 }
+
+/* ─── Scroll Reveal ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ─── Room Tab Transition ─── */
+@keyframes room-fade-in {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-room-fade { animation: room-fade-in 0.45s ease-out both; }
+
+/* ─── Floating CTA ─── */
+@keyframes cta-ping {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+.animate-cta-ping { animation: cta-ping 2s ease-in-out infinite; }
+
+@keyframes cta-slide-up {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-cta-enter { animation: cta-slide-up 0.4s cubic-bezier(.34,1.56,.64,1) both; }
+
+/* ─── Testimonial Card ─── */
+@keyframes testimonial-pop {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-testimonial { animation: testimonial-pop 0.5s cubic-bezier(.34,1.56,.64,1) both; }

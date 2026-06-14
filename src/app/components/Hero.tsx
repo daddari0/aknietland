@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { MessageCircle, Clock, Users, ArrowRight, Star } from 'lucide-react';
@@ -9,6 +10,14 @@ interface HeroProps {
 }
 
 export function Hero({ language }: HeroProps) {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const translations = {
     kz: {
       tagline: '✨ Астананың #1 Жеке Балабақшасы',
@@ -41,12 +50,21 @@ export function Hero({ language }: HeroProps) {
   const t = translations[language];
 
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-br from-[#EFF8FB] via-[#FDFBF7] to-[#EFFDF2] dark:from-[#0a1628] dark:via-[#0d2040] dark:to-[#0e2a4f]">
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-br from-[#EFF8FB] via-[#FAF9F6] to-[#EFFDF2] dark:from-[#152238] dark:via-[#1c2e4a] dark:to-[#1e3a63]">
 
-      {/* ── Decorative animated blobs ── */}
-      <div className="absolute top-[-10%] right-[-8%] w-[500px] h-[500px] rounded-full bg-[#1CA6D0]/10 dark:bg-[#1CA6D0]/15 blur-[90px] animate-float-slow" />
-      <div className="absolute bottom-[-15%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#3BB85E]/8 dark:bg-[#3BB85E]/12 blur-[100px] animate-float-slow delay-1000" />
-      <div className="absolute top-[40%] left-[30%] w-[300px] h-[300px] rounded-full bg-[#FAC315]/6 dark:bg-[#FAC315]/8 blur-[70px] animate-float-slow delay-500" />
+      {/* ── Decorative animated blobs — parallax layers ── */}
+      <div
+        className="absolute top-[-10%] right-[-8%] w-[500px] h-[500px] rounded-full bg-[#1CA6D0]/10 dark:bg-[#1CA6D0]/15 blur-[90px] animate-float-slow"
+        style={{ transform: `translateY(${scrollY * 0.14}px)` }}
+      />
+      <div
+        className="absolute bottom-[-15%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#3BB85E]/8 dark:bg-[#3BB85E]/12 blur-[100px] animate-float-slow delay-1000"
+        style={{ transform: `translateY(${-scrollY * 0.10}px)` }}
+      />
+      <div
+        className="absolute top-[40%] left-[30%] w-[300px] h-[300px] rounded-full bg-[#FAC315]/6 dark:bg-[#FAC315]/8 blur-[70px] animate-float-slow delay-500"
+        style={{ transform: `translateY(${scrollY * 0.06}px)` }}
+      />
 
       {/* ── Floating sparkle dots ── */}
       {[
@@ -137,8 +155,11 @@ export function Hero({ language }: HeroProps) {
             </div>
           </div>
 
-          {/* ── RIGHT: Entrance photo with logo overlay ── */}
-          <div className="relative mx-auto max-w-lg lg:max-w-none w-full animate-fade-in-up delay-200">
+          {/* ── RIGHT: Entrance photo with logo overlay — counter-parallax ── */}
+          <div
+            className="relative mx-auto max-w-lg lg:max-w-none w-full animate-fade-in-up delay-200"
+            style={{ transform: `translateY(${-scrollY * 0.05}px)` }}
+          >
 
             {/* Glow ring behind image */}
             <div className="absolute -inset-4 rounded-[40px] bg-gradient-to-tr from-[#1CA6D0]/20 via-[#FAC315]/15 to-[#3BB85E]/20 blur-2xl animate-pulse" />
@@ -180,7 +201,7 @@ export function Hero({ language }: HeroProps) {
       {/* ── Wave bottom divider ── */}
       <div className="wave-bottom">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{height: '70px'}}>
-          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#FDFBF7" className="fill-[#FDFBF7] dark:fill-[#0a1628]" />
+          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#FAF9F6" className="fill-[#FAF9F6] dark:fill-[#152238]" />
         </svg>
       </div>
     </section>
