@@ -4,12 +4,14 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { MessageCircle, Clock, Users, ArrowRight, Star } from 'lucide-react';
 import entranceImg from '../../assets/entrance.jpg';
 import logoImg from '../../assets/logo.png';
+import logoDarkImg from '../../assets/logo-dark.png';
 
 interface HeroProps {
   language: 'kz' | 'ru';
+  theme?: 'light' | 'dark';
 }
 
-export function Hero({ language }: HeroProps) {
+export function Hero({ language, theme }: HeroProps) {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -176,8 +178,8 @@ export function Hero({ language }: HeroProps) {
             </div>
 
             {/* Logo float badge */}
-            <div className="absolute -top-6 -left-4 sm:-left-8 bg-white rounded-3xl shadow-2xl p-3 border border-gray-100 animate-bounce-subtle">
-              <img src={logoImg} alt="AK-NIET Logo" className="h-16 w-auto object-contain" />
+            <div className="absolute -top-6 -left-4 sm:-left-8 bg-white dark:bg-[#152238] rounded-3xl shadow-2xl p-3 border border-gray-100 dark:border-white/10 animate-bounce-subtle">
+              <img src={theme === 'dark' ? logoDarkImg : logoImg} alt="AK-NIET Logo" className="h-16 w-auto object-contain" />
             </div>
 
             {/* Safety badge bottom-right */}

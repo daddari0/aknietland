@@ -44,7 +44,7 @@ export default function App() {
         theme={theme}
         onThemeToggle={toggleTheme}
       />
-      <Hero language={language} />
+      <Hero language={language} theme={theme} />
       <QuickFacts language={language} />
       <Programs language={language} />
       <Environment language={language} />
@@ -53,7 +53,7 @@ export default function App() {
       <Testimonials language={language} />
       <FAQ language={language} />
       <ContactForm language={language} />
-      <Footer language={language} />
+      <Footer language={language} theme={theme} />
       <FloatingCTA language={language} />
     </div>
   );

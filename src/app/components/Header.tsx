@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone, MessageCircle, Sun, Moon } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
+import logoDarkImg from '../../assets/logo-dark.png';
 
 interface HeaderProps {
   language: 'kz' | 'ru';
@@ -65,7 +66,7 @@ export function Header({ language, onLanguageChange, theme, onThemeToggle }: Hea
           {/* ── LOGO ── */}
           <a href="#" className="flex-shrink-0 flex items-center gap-3 group">
             <img
-              src={logoImg}
+              src={theme === 'dark' ? logoDarkImg : logoImg}
               alt="AK-NIET Logo"
               className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md"
             />

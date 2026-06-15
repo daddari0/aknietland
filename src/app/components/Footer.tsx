@@ -1,11 +1,13 @@
 import { Instagram, MessageCircle, Phone, MapPin, Clock, Heart } from 'lucide-react';
 import logoImg from '../../assets/logo.png';
+import logoDarkImg from '../../assets/logo-dark.png';
 
 interface FooterProps {
   language: 'kz' | 'ru';
+  theme?: 'light' | 'dark';
 }
 
-export function Footer({ language }: FooterProps) {
+export function Footer({ language, theme }: FooterProps) {
   const translations = {
     kz: {
       tagline: 'Балаңыз үшін жайлы мекен және қауіпсіз орта.',
@@ -54,9 +56,9 @@ export function Footer({ language }: FooterProps) {
           <div className="space-y-5 lg:col-span-1">
             <a href="#" className="inline-block">
               <img
-                src={logoImg}
+                src={theme === 'dark' ? logoDarkImg : logoImg}
                 alt="AK-NIET Logo"
-                className="h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity dark:brightness-0 dark:invert"
+                className="h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
               />
             </a>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">{t.tagline}</p>
