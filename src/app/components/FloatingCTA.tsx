@@ -45,11 +45,11 @@ export function FloatingCTA({ language }: FloatingCTAProps) {
           </button>
           <p className="text-xs font-bold text-gray-800 dark:text-white pr-5 leading-snug">
             {language === 'kz'
-              ? '💬 Сұрақтарыңыз бар ма? Жазыңыз!'
-              : '💬 Есть вопросы? Напишите нам!'}
+              ? 'Сұрақтарыңыз бар ма? Жазыңыз!'
+              : 'Есть вопросы? Напишите нам!'}
           </p>
           <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">
-            {language === 'kz' ? '⚡ 5 минутта жауап' : '⚡ Ответим за 5 минут'}
+            {language === 'kz' ? '5 минутта жауап береміз' : 'Ответим за 5 минут'}
           </p>
           {/* Small arrow */}
           <div

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { MessageCircle, Clock, Users, ArrowRight, Star } from 'lucide-react';
+import { MessageCircle, Clock, Users, ArrowRight, Star, GraduationCap } from 'lucide-react';
 import entranceImg from '../../assets/entrance.jpg';
 import logoImg from '../../assets/logo.png';
 import logoDarkImg from '../../assets/logo-dark.png';
@@ -22,7 +22,7 @@ export function Hero({ language, theme }: HeroProps) {
 
   const translations = {
     kz: {
-      tagline: '✨ Астананың #1 Жеке Балабақшасы',
+      tagline: 'Астананың №1 жеке балабақшасы',
       title: 'Балаңыздың бақытты болашағы',
       titleAccent: 'осы жерден басталады!',
       subtitle: 'Жайлы мекен, қауіпсіз орта және сапалы білім — AK-NIET балабақшасы сіздің баланың жан-жақты дамуы үшін.',
@@ -35,7 +35,7 @@ export function Hero({ language, theme }: HeroProps) {
       waMessage: 'https://wa.me/77773626742?text=%D0%A1%D3%99%D0%BB%D0%B5%D0%BC%D0%B5%D1%82%D1%81%D1%96%D0%B7%D0%B1%D0%B5!%20AK-NIET%20%D0%B1%D0%B0%D0%BB%D0%B0%D0%B1%D0%B0%D2%B7%D1%88%D0%B0%D1%81%D1%8B%20%D1%82%D1%83%D1%80%D0%B0%D0%BB%D1%8B%20%D0%B1%D1%96%D0%BB%D0%B3%D1%96%D0%BC%20%D0%BA%D0%B5%D0%BB%D0%B5%D0%B4%D1%96.',
     },
     ru: {
-      tagline: '✨ Частный детский сад №1 в Астане',
+      tagline: 'Частный детский сад №1 в Астане',
       title: 'Счастливое будущее вашего',
       titleAccent: 'ребёнка начинается здесь!',
       subtitle: 'Уютная атмосфера, полная безопасность и качественное образование — AK-NIET создан для всестороннего развития вашего малыша.',
@@ -116,8 +116,9 @@ export function Hero({ language, theme }: HeroProps) {
                 <Users size={15} className="text-[#3BB85E]" />
                 {t.badgeAges}
               </span>
-              <span className="glass-card text-gray-800 dark:text-white border border-gray-200/50 dark:border-white/10 text-sm font-bold px-4 py-2 rounded-full shadow-sm">
-                🎓 {t.badgeGroups}
+              <span className="glass-card text-gray-800 dark:text-white border border-gray-200/50 dark:border-white/10 text-sm font-bold px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
+                <GraduationCap size={15} className="text-[#FAC315]" />
+                {t.badgeGroups}
               </span>
             </div>
 

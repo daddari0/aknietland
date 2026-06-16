@@ -14,7 +14,7 @@ export function Footer({ language, theme }: FooterProps) {
       hours: 'Жұмыс уақыты',
       hoursValue: 'Дүйсенбі – Жұма: 08:00 – 19:00',
       address: 'Мекен-жай',
-      addressValue: 'Астана қ., Нажімеденов к-сі, 37',
+      addressValue: 'Астана қ., Нәжімеденов к-сі, 37',
       contact: 'Байланыс',
       rights: '© 2026 AK-NIET Балабақшасы. Барлық құқықтар қорғалған.',
       madeWith: 'Балаларға деген сүйіспеншілікпен жасалды',

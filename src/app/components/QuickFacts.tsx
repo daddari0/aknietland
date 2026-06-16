@@ -37,7 +37,7 @@ export function QuickFacts({ language }: QuickFactsProps) {
       groupsDesc: 'Жас ерекшеліктеріне қарай бөлінген',
 
       addressTitle: 'Мекен-жай',
-      addressVal: 'Нажімеденов 37',
+      addressVal: 'Нәжімеденов 37',
       addressDesc: 'Астана қ., Қазақстан',
     },
     ru: {

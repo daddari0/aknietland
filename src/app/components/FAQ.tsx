@@ -1,4 +1,5 @@
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './ui/accordion';
+import { HelpCircle, FileText, Clock, Users, CheckCircle2, Utensils, Shield, MessageCircle } from 'lucide-react';
 
 interface FAQProps {
   language: 'kz' | 'ru';
@@ -7,45 +8,39 @@ interface FAQProps {
 export function FAQ({ language }: FAQProps) {
   const translations = {
     kz: {
-      badge: '❓ Жиі сұрақтар',
+      badge: 'Жиі сұрақтар',
       title: 'Ата-аналар',
       titleAccent: 'жиі сұрайды',
-      subtitle: 'Балабақшамыз туралы ең маңызды сұрақтарға жауаптар',
+      subtitle: 'Балабақшамызды таңдаған кезде туындайтын негізгі сұрақтарға жауаптар',
       questions: [
         {
           q: 'Қабылдау үшін қандай құжаттар қажет?',
           a: 'Қабылдау үшін: баланың туу туралы куәлігінің көшірмесі, ата-анасының жеке куәлігінің көшірмесі, 026/у нысанындағы медициналық карта және денсаулық паспорты.',
-          emoji: '📄',
         },
         {
           q: 'Балабақшаның жұмыс режимі қандай?',
           a: 'Дүйсенбі мен жұма аралығында сағат 08:00-ден 19:00-ге дейін. Сенбі, жексенбі және мемлекеттік мерекелер — демалыс күндері.',
-          emoji: '🕗',
         },
         {
           q: 'Топтарда қанша бала бар?',
           a: '2-ден 6 жасқа дейінгі 3 жас ерекшелік тобы. Әр топта 15–20 бала болады — бұл әр балаға жеке және сапалы көңіл бөлуге мүмкіндік береді.',
-          emoji: '👨‍👩‍👧‍👦',
         },
         {
           q: 'Каратэ, гимнастика, ағылшын тілі үйірмелері құнға кіре ме?',
           a: 'Иә! Барлық үйірмелер (каратэ, гимнастика, ағылшын тілі, даярлық тобы) оқу бағдарламасына толықтай кіреді — қосымша төлем жоқ.',
-          emoji: '✅',
         },
         {
           q: 'Балаларға қандай тамақ беріледі?',
-          a: 'Кәсіби аспаздар күнделікті жаңа өнімдерден дайындайтын 5 мезгілдік сбалансталған тамақтану. Балалардың мәзірі барлық нормаларға сай.',
-          emoji: '🍱',
+          a: 'Сертификатталған диетолог әзірлеген 5 мезгіл толыққанды, теңгерімді тамақтану. Тағамдар күнделікті жаңа өнімдерден дайындалады.',
         },
         {
           q: 'Балалардың қауіпсіздігі қалай қамтамасыз етілген?',
           a: 'Балабақша іші мен сырты тәулік бойы бейнебақылау және күзет жүйесімен бақыланады. Барлық жиһаздар мен бөлмелер балалар үшін мүлдем қауіпсіз.',
-          emoji: '🔒',
         },
       ],
     },
     ru: {
-      badge: '❓ Частые вопросы',
+      badge: 'Частые вопросы',
       title: 'Родители',
       titleAccent: 'часто спрашивают',
       subtitle: 'Ответы на самые популярные вопросы о нашем детском саде',
@@ -53,38 +48,34 @@ export function FAQ({ language }: FAQProps) {
         {
           q: 'Какие документы нужны для поступления?',
           a: 'Копия свидетельства о рождении ребёнка, копия удостоверения личности родителя, медицинская карта формы 026/у и паспорт здоровья ребёнка.',
-          emoji: '📄',
         },
         {
           q: 'Каков режим работы детского сада?',
           a: 'Мы открыты с понедельника по пятницу с 08:00 до 19:00. Выходные — суббота, воскресенье и официальные государственные праздники.',
-          emoji: '🕗',
         },
         {
           q: 'Сколько детей в группах?',
           a: '3 возрастные группы для детей от 2 до 6 лет. В каждой группе от 15 до 20 детей — это позволяет педагогам уделить максимум внимания каждому ребёнку.',
-          emoji: '👨‍👩‍👧‍👦',
         },
         {
           q: 'Входят ли кружки в стоимость?',
           a: 'Да! Все кружки (каратэ, гимнастика, английский язык, подготовительная группа) включены в базовую стоимость обучения без скрытых доплат.',
-          emoji: '✅',
         },
         {
           q: 'Какое питание предоставляется детям?',
           a: 'Полноценное сбалансированное 5-разовое питание, составленное сертифицированным диетологом. Блюда готовятся ежедневно из свежих продуктов.',
-          emoji: '🍱',
         },
         {
           q: 'Обеспечена ли безопасность детей?',
           a: 'Да! Круглосуточное видеонаблюдение внутри и снаружи, система контроля доступа. Все пространства спроектированы с максимальной заботой о детской безопасности.',
-          emoji: '🔒',
         },
       ],
     },
   };
 
   const t = translations[language];
+
+  const faqIcons = [FileText, Clock, Users, CheckCircle2, Utensils, Shield];
 
   return (
     <section id="faq" className="py-20 lg:py-28 bg-[#FAF9F6] dark:bg-[#152238] relative overflow-hidden">
@@ -96,6 +87,7 @@ export function FAQ({ language }: FAQProps) {
         {/* Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-[#1CA6D0]/8 border border-[#1CA6D0]/20 text-[#1CA6D0] dark:bg-white/10 dark:border-white/20 dark:text-white/90 text-sm font-bold px-5 py-2 rounded-full mb-5">
+            <HelpCircle size={15} className="text-[#1CA6D0]" />
             {t.badge}
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
@@ -108,27 +100,30 @@ export function FAQ({ language }: FAQProps) {
         {/* Accordion */}
         <div className="space-y-4">
           <Accordion type="single" collapsible className="w-full space-y-4">
-            {t.questions.map((item, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[20px] shadow-sm hover:shadow-md transition-shadow overflow-hidden"
-              >
-                <AccordionTrigger className="px-6 py-5 text-left hover:no-underline cursor-pointer group">
-                  <span className="flex items-center gap-4 text-gray-800 dark:text-gray-200 font-bold text-base group-hover:text-[#1CA6D0] transition-colors">
-                    <span className="flex-shrink-0 w-10 h-10 rounded-2xl bg-[#1CA6D0]/8 dark:bg-[#1CA6D0]/25 flex items-center justify-center text-xl">
-                      {item.emoji}
+            {t.questions.map((item, index) => {
+              const IconComponent = faqIcons[index];
+              return (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[20px] shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                >
+                  <AccordionTrigger className="px-6 py-5 text-left hover:no-underline cursor-pointer group">
+                    <span className="flex items-center gap-4 text-gray-800 dark:text-gray-200 font-bold text-base group-hover:text-[#1CA6D0] transition-colors">
+                      <span className="flex-shrink-0 w-10 h-10 rounded-2xl bg-[#1CA6D0]/8 dark:bg-[#1CA6D0]/25 flex items-center justify-center">
+                        <IconComponent size={20} className="text-[#1CA6D0]" />
+                      </span>
+                      {item.q}
                     </span>
-                    {item.q}
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-5">
-                  <div className="pl-14 text-gray-600 dark:text-gray-350 text-sm lg:text-base leading-relaxed border-l-2 border-[#1CA6D0]/20 dark:border-[#1CA6D0]/40 ml-5">
-                    {item.a}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-5">
+                    <div className="pl-14 text-gray-600 dark:text-gray-350 text-sm lg:text-base leading-relaxed border-l-2 border-[#1CA6D0]/20 dark:border-[#1CA6D0]/40 ml-5">
+                      {item.a}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
           </Accordion>
         </div>
 
@@ -136,7 +131,7 @@ export function FAQ({ language }: FAQProps) {
         <div className="mt-12 text-center">
           <div className="bg-gradient-to-br from-[#1CA6D0]/8 to-[#3BB85E]/8 dark:from-[#1CA6D0]/15 dark:to-[#3BB85E]/15 border border-[#1CA6D0]/15 dark:border-[#1CA6D0]/30 rounded-[28px] p-8">
             <p className="text-2xl font-black text-gray-900 dark:text-white mb-2">
-              {language === 'kz' ? 'Сұрағыңыз қалды ма? 🤔' : 'Остались вопросы? 🤔'}
+              {language === 'kz' ? 'Сұрақтарыңыз қалды ма?' : 'Остались вопросы?'}
             </p>
             <p className="text-gray-500 dark:text-gray-300 mb-6">
               {language === 'kz'
@@ -147,9 +142,9 @@ export function FAQ({ language }: FAQProps) {
               href="https://wa.me/77773626742"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#3BB85E] hover:bg-[#2fa34f] text-white font-black px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2.5 bg-[#3BB85E] hover:bg-[#2fa34f] text-white font-black px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all cursor-pointer"
             >
-              <span className="text-xl">💬</span>
+              <MessageCircle size={18} />
               {language === 'kz' ? 'WhatsApp-қа жазу' : 'Написать в WhatsApp'}
             </a>
           </div>

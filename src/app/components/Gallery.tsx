@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ZoomIn, Image as ImageIcon } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import entranceImg from '../../assets/entrance.jpg';
 import classroomImg from '../../assets/classroom.jpg';
@@ -14,7 +14,7 @@ export function Gallery({ language }: GalleryProps) {
 
   const translations = {
     kz: {
-      badge: '📸 Фотогалерея',
+      badge: 'Фотогалерея',
       title: 'Балабақшамызды',
       titleAccent: 'өз көзіңізбен көріңіз',
       subtitle: 'Балаңыздың жайлылығы мен қауіпсіздігі үшін жасалған жағдайлар',
@@ -22,7 +22,7 @@ export function Gallery({ language }: GalleryProps) {
       viewPhoto: 'Фотоны үлкейту',
     },
     ru: {
-      badge: '📸 Фотогалерея',
+      badge: 'Фотогалерея',
       title: 'Посмотрите на нас',
       titleAccent: 'своими глазами',
       subtitle: 'Условия, созданные для уюта, развития и безопасности вашего ребёнка',
@@ -36,19 +36,19 @@ export function Gallery({ language }: GalleryProps) {
       src: entranceImg,
       title: language === 'kz' ? 'Балабақша кіре берісі' : 'Входная группа',
       desc: language === 'kz' ? 'Қауіпсіз кіреберіс және жарқын маңдайша' : 'Безопасный вход и яркая вывеска AK-NIET',
-      tag: language === 'kz' ? '🏫 Сыртқы көрініс' : '🏫 Фасад',
+      tag: language === 'kz' ? 'Сыртқы көрініс' : 'Фасад',
     },
     {
       src: classroomImg,
       title: language === 'kz' ? 'Оқу-ойын бөлмесі' : 'Учебно-игровая комната',
       desc: language === 'kz' ? 'Ойын мен дамуға арналған жайлы бөлме' : 'Удобные столы и развивающие материалы',
-      tag: language === 'kz' ? '🖊️ Сынып бөлмесі' : '🖊️ Классная комната',
+      tag: language === 'kz' ? 'Сынып бөлмесі' : 'Классная комната',
     },
     {
       src: hallwayImg,
       title: language === 'kz' ? 'Киім ауыстыратын бөлме' : 'Раздевальная комната',
       desc: language === 'kz' ? 'Әр балаға арналған жеке шкафтар' : 'Индивидуальные шкафчики для каждого ребёнка',
-      tag: language === 'kz' ? '👗 Дәліз' : '👗 Раздевалка',
+      tag: language === 'kz' ? 'Дәліз' : 'Раздевалка',
     },
   ];
 
@@ -83,6 +83,7 @@ export function Gallery({ language }: GalleryProps) {
         {/* Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 bg-[#FAC315]/10 border border-[#FAC315]/25 text-[#b88a00] dark:bg-[#FAC315]/20 dark:text-[#FAC315] text-sm font-bold px-5 py-2 rounded-full mb-5">
+            <ImageIcon size={14} className="text-[#FAC315]" />
             {t.badge}
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">

@@ -7,7 +7,7 @@ interface TestimonialsProps {
 
 const testimonialData = {
   kz: {
-    badge: '⭐ Ата-аналар пікірлері',
+    badge: 'Ата-аналар пікірлері',
     title: 'Олар не дейді',
     titleAccent: 'біз туралы?',
     subtitle: 'AK-NIET таңдаған ата-аналардың шынайы пікірлері',
@@ -17,7 +17,7 @@ const testimonialData = {
         role: 'Ерлан мен Айдананың анасы',
         avatar: '👩',
         color: '#1CA6D0',
-        text: '«AK-NIET — бұл тек балабақша ғана емес, ол — екінші үй. Балаларым таңертең ерте барғысы келеді, ал кешке оралғанда жаңа нәрселер үйренгенін шаттана айтады!»',
+        text: '«AK-NIET — бұл тек балабақша ғана емес, ол — екінші үй. Балаларым таңертең ерте барғысы келеді, ақыл-ой, дене дамуынан жақсы нәтиже көріп жүрміз!»',
         rating: 5,
       },
       {
@@ -33,7 +33,7 @@ const testimonialData = {
         role: 'Динаның анасы',
         avatar: '👩‍🦱',
         color: '#E62445',
-        text: '«5 тамақтану, ағылшын тілі, каратэ — бәрі бір жерде! Қызым 3 айда қаншама нәрсе үйренді деп таң қалдым. Жеке тәсіл өте ұнады, барлығы жылы және мейірімді.»',
+        text: '«5 мезгіл тамақтану, ағылшын тілі, каратэ — бәрі бір жерде! Қызым 3 айда қаншама нәрсе үйренді деп таңғалдым. Жеке тәсіл өте ұнады, барлығы жылы әрі мейірімді.»',
         rating: 5,
       },
     ],
@@ -45,7 +45,7 @@ const testimonialData = {
     ],
   },
   ru: {
-    badge: '⭐ Отзывы родителей',
+    badge: 'Отзывы родителей',
     title: 'Что говорят',
     titleAccent: 'о нас?',
     subtitle: 'Реальные отзывы родителей, которые выбрали AK-NIET',
@@ -119,6 +119,7 @@ export function Testimonials({ language }: TestimonialsProps) {
         {/* Header */}
         <div className="text-center mb-14 reveal">
           <div className="inline-flex items-center gap-2 bg-[#FAC315]/10 border border-[#FAC315]/25 text-[#b88a00] dark:bg-[#FAC315]/20 dark:text-[#FAC315] text-sm font-bold px-5 py-2 rounded-full mb-5">
+            <Star size={14} className="text-[#FAC315] fill-[#FAC315]" />
             {t.badge}
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">

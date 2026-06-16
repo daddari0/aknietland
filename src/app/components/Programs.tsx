@@ -1,3 +1,5 @@
+import { Target, CheckCircle2 } from 'lucide-react';
+
 interface ProgramsProps {
   language: 'kz' | 'ru';
 }
@@ -5,7 +7,7 @@ interface ProgramsProps {
 export function Programs({ language }: ProgramsProps) {
   const translations = {
     kz: {
-      badge: '🎯 Бізің бағдарламалар',
+      badge: 'Біздің бағдарламалар',
       title: 'Балаңыздың',
       titleAccent: 'жан-жақты дамуы',
       subtitle: 'Кәсіби педагогтар жетекшілігімен нәтижелі бағдарламалар',
@@ -49,7 +51,7 @@ export function Programs({ language }: ProgramsProps) {
       ],
     },
     ru: {
-      badge: '🎯 Наши программы',
+      badge: 'Наши программы',
       title: 'Всестороннее',
       titleAccent: 'развитие ребёнка',
       subtitle: 'Результативные программы под руководством профессиональных педагогов',
@@ -83,7 +85,7 @@ export function Programs({ language }: ProgramsProps) {
         },
         {
           emoji: '📚',
-          name: 'Даярлық тобы',
+          name: 'Подготовительная группа',
           tag: 'К школе',
           desc: 'Качественная подготовка к начальной школе. Обучение чтению, письму, основам математики и логики.',
           color: '#3BB85E',
@@ -107,6 +109,7 @@ export function Programs({ language }: ProgramsProps) {
         {/* Section header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-[#1CA6D0]/8 text-[#1CA6D0] dark:bg-[#1CA6D0]/15 dark:text-[#1CA6D0] text-sm font-bold px-5 py-2 rounded-full mb-5 border border-[#1CA6D0]/20 dark:border-[#1CA6D0]/30">
+            <Target size={15} className="text-[#1CA6D0]" />
             {t.badge}
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
@@ -167,7 +170,7 @@ export function Programs({ language }: ProgramsProps) {
         {/* All included note */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-3 bg-[#3BB85E]/8 border border-[#3BB85E]/20 text-[#3BB85E] dark:bg-[#3BB85E]/15 dark:border-[#3BB85E]/30 font-bold text-sm px-6 py-3 rounded-2xl">
-            <span className="text-lg">✅</span>
+            <CheckCircle2 size={18} className="text-[#3BB85E]" />
             {language === 'kz'
               ? 'Барлық бағдарламалар оқу құнына кіреді — қосымша төлем жоқ!'
               : 'Все программы включены в стоимость обучения — без доплат!'}

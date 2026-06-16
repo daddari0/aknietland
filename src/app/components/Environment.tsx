@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ShieldCheck, Heart, Sparkles, Award, Utensils, Lock, Home, BookOpen, Shirt } from 'lucide-react';
 import classroomImg from '../../assets/classroom.jpg';
 import hallwayImg from '../../assets/hallway.jpg';
 
@@ -16,51 +17,51 @@ export function Environment({ language }: EnvironmentProps) {
 
   const translations = {
     kz: {
-      badge: '🏡 Біздің орта',
+      badge: 'Біздің орта',
       title: 'Жайлы мекен,',
       titleAccent: 'қауіпсіз орта',
       subtitle:
         'AK-NIET балабақшасында біз балалар үшін барынша қолайлы, таза және қауіпсіз орта құруға ерекше көңіл бөлеміз.',
       features: [
-        { emoji: '🛡️', title: 'Қауіпсіздік', desc: 'Күнделікті кварцтау, тазалық пен 24/7 бейнебақылау.' },
-        { emoji: '💛', title: 'Жылылық пен қамқорлық', desc: 'Сәбилерге үй жылуын сыйлайтын атмосфера.' },
-        { emoji: '✨', title: 'Дамыту ортасы', desc: 'Заманауи ойыншықтар мен экологиялық таза жиһаздар.' },
-        { emoji: '🏆', title: 'Білікті тәрбиешілер', desc: 'Әр баланың мінезіне ерекше ықыласпен қарайтын мамандар.' },
-        { emoji: '🍱', title: '5 мезгілдік тамақ', desc: 'Балаларға арналған сбалансталған пайдалы тамақтану.' },
-        { emoji: '🔒', title: 'Бақылау жүйесі', desc: 'Кіруді бақылау және ата-анаға хабарлама жүйесі.' },
+        { title: 'Қауіпсіздік', desc: 'Күнделікті кварцтау, тазалық пен 24/7 бейнебақылау.' },
+        { title: 'Жылылық пен қамқорлық', desc: 'Сәбилерге үй жылуын сыйлайтын атмосфера.' },
+        { title: 'Дамыту ортасы', desc: 'Заманауи ойыншықтар мен экологиялық таза жиһаз.' },
+        { title: 'Білікті тәрбиешілер', desc: 'Әр баланың мінезіне ерекше ықыласпен қарайтын мамандар.' },
+        { title: '5 мезгіл тамақтану', desc: 'Сертификатталған диетолог әзірлеген теңгерімді мәзір.' },
+        { title: 'Бақылау жүйесі', desc: 'Кіруді бақылау және ата-анаға хабарлама жүйесі.' },
       ],
       rooms: {
         classroom: {
-          label: '🖊️ Оқу-ойын бөлмесі',
+          label: 'Оқу-ойын бөлмесі',
           desc: 'Дамыту ойыншықтары, ақыл-ой жаттығулары және жайлы парталар.',
         },
         hallway: {
-          label: '👗 Киім ауыстыратын бөлме',
+          label: 'Киім ауыстыратын бөлме',
           desc: 'Әр балаға арналған жеке шкафтар мен ыңғайлы орын.',
         },
       },
     },
     ru: {
-      badge: '🏡 Наша среда',
+      badge: 'Наша среда',
       title: 'Уютное место,',
       titleAccent: 'безопасная среда',
       subtitle:
         'В детском саду AK-NIET мы уделяем особое внимание созданию комфортной, чистой и абсолютно безопасной среды для каждого ребёнка.',
       features: [
-        { emoji: '🛡️', title: 'Безопасность', desc: 'Ежедневная дезинфекция и круглосуточное видеонаблюдение.' },
-        { emoji: '💛', title: 'Тепло и забота', desc: 'Домашняя атмосфера заботы для каждого малыша.' },
-        { emoji: '✨', title: 'Развивающая среда', desc: 'Современные игрушки и экологически чистая мебель.' },
-        { emoji: '🏆', title: 'Опытные педагоги', desc: 'Специалисты с индивидуальным подходом к каждому.' },
-        { emoji: '🍱', title: '5-разовое питание', desc: 'Сбалансированное меню от сертифицированного диетолога.' },
-        { emoji: '🔒', title: 'Система контроля', desc: 'Контроль доступа и оповещения для родителей.' },
+        { title: 'Безопасность', desc: 'Ежедневная дезинфекция и круглосуточное видеонаблюдение.' },
+        { title: 'Тепло и забота', desc: 'Домашняя атмосфера заботы для каждого малыша.' },
+        { title: 'Развивающая среда', desc: 'Современные игрушки и экологически чистая мебель.' },
+        { title: 'Опытные педагоги', desc: 'Специалисты с индивидуальным подходом к каждому.' },
+        { title: '5-разовое питание', desc: 'Сбалансированное меню от сертифицированного диетолога.' },
+        { title: 'Система контроля', desc: 'Контроль доступа и оповещения для родителей.' },
       ],
       rooms: {
         classroom: {
-          label: '🖊️ Игровая и учебная комната',
+          label: 'Игровая и учебная комната',
           desc: 'Развивающие игрушки, умственные упражнения и удобные столы.',
         },
         hallway: {
-          label: '👗 Раздевальная комната',
+          label: 'Раздевальная комната',
           desc: 'Индивидуальные шкафчики и удобное место для каждого ребёнка.',
         },
       },
@@ -72,6 +73,14 @@ export function Environment({ language }: EnvironmentProps) {
   const roomImages: Record<RoomKey, string> = {
     classroom: classroomImg,
     hallway: hallwayImg,
+  };
+
+  const featureIcons = [ShieldCheck, Heart, Sparkles, Award, Utensils, Lock];
+  const featureColors = ['#1CA6D0', '#FAC315', '#3BB85E', '#E62445', '#1CA6D0', '#FAC315'];
+
+  const roomIcons = {
+    classroom: BookOpen,
+    hallway: Shirt,
   };
 
   const handleRoomChange = (room: RoomKey) => {
@@ -114,6 +123,7 @@ export function Environment({ language }: EnvironmentProps) {
         {/* Header */}
         <div className="text-center mb-16 reveal">
           <div className="inline-flex items-center gap-2 bg-[#3BB85E]/8 border border-[#3BB85E]/20 text-[#2fa34f] dark:bg-white/10 dark:border-white/20 dark:text-white/80 text-sm font-bold px-5 py-2 rounded-full mb-5">
+            <Home size={15} className="text-[#3BB85E]" />
             {t.badge}
           </div>
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-4 leading-tight">
@@ -126,16 +136,24 @@ export function Environment({ language }: EnvironmentProps) {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* LEFT: Feature grid with stagger reveal */}
           <div className="grid grid-cols-2 gap-4">
-            {t.features.map((f, i) => (
-              <div
-                key={i}
-                className={`reveal reveal-delay-${Math.min(i + 1, 5)} glass-card rounded-[24px] p-5 hover:bg-white/90 dark:hover:bg-white/20 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group border border-gray-200/50 dark:border-white/10 shadow-sm`}
-              >
-                <div className="text-3xl mb-3 group-hover:scale-110 transition-transform inline-block">{f.emoji}</div>
-                <h4 className="font-black text-gray-900 dark:text-white text-sm mb-1">{f.title}</h4>
-                <p className="text-gray-600 dark:text-white/55 text-xs leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
+            {t.features.map((f, i) => {
+              const IconComponent = featureIcons[i];
+              return (
+                <div
+                  key={i}
+                  className={`reveal reveal-delay-${Math.min(i + 1, 5)} glass-card rounded-[24px] p-5 hover:bg-white/90 dark:hover:bg-white/20 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group border border-gray-200/50 dark:border-white/10 shadow-sm`}
+                >
+                  <div
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+                    style={{ backgroundColor: `${featureColors[i]}15` }}
+                  >
+                    <IconComponent size={22} style={{ color: featureColors[i] }} />
+                  </div>
+                  <h4 className="font-black text-gray-900 dark:text-white text-sm mb-1">{f.title}</h4>
+                  <p className="text-gray-600 dark:text-white/55 text-xs leading-relaxed">{f.desc}</p>
+                </div>
+              );
+            })}
           </div>
 
           {/* RIGHT: Interactive room switcher */}
@@ -144,16 +162,18 @@ export function Environment({ language }: EnvironmentProps) {
             <div className="flex gap-2 p-1.5 bg-white/80 dark:bg-white/10 rounded-2xl border border-gray-200/60 dark:border-white/10 shadow-sm backdrop-blur-sm">
               {(['classroom', 'hallway'] as RoomKey[]).map((room) => {
                 const isActive = activeRoom === room;
+                const RoomIcon = roomIcons[room];
                 return (
                   <button
                     key={room}
                     onClick={() => handleRoomChange(room)}
-                    className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-sm font-bold transition-all duration-300 cursor-pointer ${
+                    className={`flex-1 flex items-center justify-center gap-2.5 py-2.5 px-3 rounded-xl text-sm font-bold transition-all duration-300 cursor-pointer ${
                       isActive
                         ? 'bg-white dark:bg-white/20 text-gray-900 dark:text-white shadow-md scale-[1.02]'
                         : 'text-gray-500 dark:text-white/50 hover:text-gray-700 dark:hover:text-white/70'
                     }`}
                   >
+                    <RoomIcon size={16} className={isActive ? 'text-[#1CA6D0]' : 'text-gray-400 dark:text-white/45'} />
                     {t.rooms[room].label}
                   </button>
                 );

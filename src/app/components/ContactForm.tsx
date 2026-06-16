@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
-import { Sparkles, Phone, User, Check, MessageCircle } from 'lucide-react';
+import { Sparkles, Phone, User, Check, MessageCircle, BookmarkCheck, Zap, Gift, FileText } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface ContactFormProps {
@@ -15,28 +15,28 @@ export function ContactForm({ language }: ContactFormProps) {
 
   const translations = {
     kz: {
-      badge: '🎓 Орын брондау',
+      badge: 'Орын брондау',
       title: 'Жеке экскурсияға жазылыңыз',
       subtitle: 'Балабақшамызды өз көзіңізбен көріп, тәрбиешілермен тікелей танысыңыз',
       nameLabel: 'Ата-ананың аты-жөні',
       namePlaceholder: 'Толық атыңызды жазыңыз',
       phoneLabel: 'Телефон нөмірі',
       phonePlaceholder: '+7 (777) 362-67-42',
-      submit: '📝 Жазылуға өтінім беру',
+      submit: 'Жазылуға өтінім беру',
       successTitle: 'Өтінішіңіз сәтті қабылданды! 🎉',
       successDesc: 'Рақмет! Біз жақын арада сізге хабарласып, ыңғайлы уақытты белгілейміз.',
       orWrite: 'немесе тікелей жазыңыз',
       openSlots: 'Орын бар',
     },
     ru: {
-      badge: '🎓 Забронировать место',
+      badge: 'Забронировать место',
       title: 'Запишитесь на экскурсию',
       subtitle: 'Посмотрите сад своими глазами и познакомьтесь с воспитателями',
       nameLabel: 'Имя родителя',
       namePlaceholder: 'Как к вам обращаться?',
       phoneLabel: 'Номер телефона',
       phonePlaceholder: '+7 (777) 362-67-42',
-      submit: '📝 Записаться на экскурсию',
+      submit: 'Записать на экскурсию',
       successTitle: 'Заявка успешно отправлена! 🎉',
       successDesc: 'Спасибо! Мы свяжемся с вами в течение 15 минут для подтверждения времени.',
       orWrite: 'или напишите напрямую',
@@ -45,6 +45,24 @@ export function ContactForm({ language }: ContactFormProps) {
   };
 
   const t = translations[language];
+
+  const benefits = [
+    {
+      text: language === 'kz' ? 'Тегін экскурсия' : 'Бесплатная экскурсия',
+      icon: Check,
+      color: '#3BB85E',
+    },
+    {
+      text: language === 'kz' ? '15 минутта жауап' : 'Ответим за 15 минут',
+      icon: Zap,
+      color: '#FAC315',
+    },
+    {
+      text: language === 'kz' ? 'Орын брондауға кепілдік' : 'Гарантия бронирования места',
+      icon: Gift,
+      color: '#E62445',
+    },
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,6 +99,7 @@ export function ContactForm({ language }: ContactFormProps) {
           <div className="text-gray-900 dark:text-white space-y-8">
             <div>
               <div className="inline-flex items-center gap-2 bg-[#3BB85E]/8 border border-[#3BB85E]/20 text-[#2fa34f] dark:bg-white/10 dark:border-white/20 dark:text-white/80 text-sm font-bold px-5 py-2 rounded-full mb-5">
+                <BookmarkCheck size={15} className="text-[#3BB85E]" />
                 {t.badge}
               </div>
               <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-4">
@@ -90,15 +109,19 @@ export function ContactForm({ language }: ContactFormProps) {
             </div>
 
             {/* Key benefits */}
-            {[
-              language === 'kz' ? '✅ Тегін экскурсия' : '✅ Бесплатная экскурсия',
-              language === 'kz' ? '⚡ 15 минутта жауап' : '⚡ Ответим за 15 минут',
-              language === 'kz' ? '🎁 Орын брондауға кепілдік' : '🎁 Гарантия бронирования места',
-            ].map((benefit, i) => (
-              <div key={i} className="flex items-center gap-3 text-gray-700 dark:text-white/80 font-semibold text-sm">
-                <span>{benefit}</span>
-              </div>
-            ))}
+            <div className="space-y-4">
+              {benefits.map((benefit, i) => {
+                const IconComponent = benefit.icon;
+                return (
+                  <div key={i} className="flex items-center gap-3 text-gray-700 dark:text-white/80 font-semibold text-sm">
+                    <div className="w-7 h-7 rounded-xl flex items-center justify-center bg-white/80 dark:bg-white/5 shadow-sm border border-gray-150/40 dark:border-white/5 flex-shrink-0">
+                      <IconComponent size={14} style={{ color: benefit.color }} />
+                    </div>
+                    <span>{benefit.text}</span>
+                  </div>
+                );
+              })}
+            </div>
 
             {/* Open slots badge */}
             <div className="flex items-center gap-3 mt-6">
@@ -212,9 +235,10 @@ export function ContactForm({ language }: ContactFormProps) {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full h-14 rounded-2xl text-white font-black text-base shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all cursor-pointer"
+                  className="w-full h-14 rounded-2xl text-white font-black text-base shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all cursor-pointer flex items-center justify-center gap-2.5"
                   style={{ background: 'linear-gradient(135deg, #E62445, #c41e3a)' }}
                 >
+                  <FileText size={18} />
                   {t.submit}
                 </Button>
 
